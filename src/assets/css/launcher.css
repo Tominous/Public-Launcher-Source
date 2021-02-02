@@ -1,0 +1,18 @@
+.blog-author-skin {
+    background-image: url('https://minotar.net/helm/58025126-17c2-4fe3-bbc9-81519341f7d6/32.png'); 
+}
+
+.author-name::after {
+   content: "ArcaneCC";
+   color: red;
+}
+
+.blogtitle::after {
+   content: "Local Test Post";
+}
+
+.blogcontent::after {
+   white-space: pre-wrap;
+   font-weight: bold;
+   content: "This is a test post, only you can see this! \a \a Please be aware, that before releasing this launcher build to the public, it is great to note that you will need to reconnect the blog post to the public one.";
+}

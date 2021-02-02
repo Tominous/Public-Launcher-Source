@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Aero Client</title>
+		<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <link href="./assets/css/style.css" rel="stylesheet">
+        <script src="./assets/js/script.js"></script>
+        <script src="./assets/js/settings.js"></script>
+        <script src="./assets/js/offlinelaunch.js"></script>
+        <script src="./assets/js/onlinelaunch.js"></script>
+        <link href="https://aero-client.github.io/LauncherAPI/launcher.css" rel="stylesheet">
+        <script src="https://aero-client.github.io/LauncherAPI/bans.js"></script>
+        <script src="./assets/js/globals.js"></script>
+        <script src="./assets/js/launcherbuttons.js"></script>
+        <!-- <script src="./assets/js/backendoffline.js"></script> <!-- Used for local testing  -->
+        <script src="https://aero-client.github.io/LauncherAPI/backend.js"></script>
+        <script src="https://aero-client.github.io/LauncherAPI/whitelist.js"></script>
+
+        <!-- 
+        
+        Hello curious person looking at the Aero Client Launcher Source, it is important 
+        to note that most of the HTML for this launcher was intended to be cleaned up.        
+        
+        -->
+
+	</head>
+	<body class="pseudo-body" onload="onLoad()">
+        <div id="home">
+            <div class="header">
+                <div class="header-content">
+                <img class="header-image" src="assets/img/header.png" draggable="false">
+            <div class="launch-button" id="launchButton" onclick="startupChecksMain()">
+                <p class="launch-text">Launch 1.7.10</p>
+            </div>
+                <img class="logo" src="assets/img/icons/logo.png" draggable="false"><p class="logo-text">AERO CLIENT</p>
+                <div id="nav-buttons">
+                <img draggable="false" class="close-button" src="assets/img/icons/close.png" onclick="closeLauncher()">
+                <img draggable="false" class="minimize-button" src="assets/img/icons/minimize.png" onclick="minimizeLauncher()">
+                <button class="tab-button" onclick="showHome()">HOME</button>
+                <button class="tab-button" onclick="showServers()">SERVERS</button>‎
+                <button class="tab-button" onclick="showSettings()">SETTINGS</button>‎‎
+                <button class="tab-button" onclick="showInfo()">INFO</button>‎
+                <div class="updates-button" draggable="false" onclick="openUpdates()">UPDATES</div>
+                </div>
+            </div>
+        </div>
+
+            <div id="content">
+                <div id="home-tab" class="home-page">
+                    <div id="blog-posts-box">
+                        <b class="blogtitle" style="font-size: 17pt;"></b>
+				        <p class="blogauthor" style="font-weight: bolder;">Posted by <p class="author-name"></p><img draggable="false" class="blog-author-skin" src="https://minotar.net/helm/58025126-17c2-4fe3-bbc9-81519341f7d6/32.png"></p>
+                        <hr class="blog-line"></hr>
+                        <p class="blogcontent"></p>
+                        <div class="blog-content-holder">
+                            <p class="blog-content"></p>
+                        </div>
+                        <div class="blog-title-holder">
+                            <h class="blog-title"></h>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                    <!-- Servers Tab (Unfinished for the most part, but still here for when its completed.)-->
+
+                <div id="serverstab">
+                    <section id="servers-tab" class="servers-page">
+
+                        <div id="public-server-list" class="public-servers">
+                            <br>
+                            <p class="popular-servers-label">Popular Networks</p>
+                            <div class="server-popular">
+                                <img class="server-icon" src="https://texture.namemc.com/cd/1e/cd1e2cb4236dc339.png" draggable="false"><h5 class="server">Viper<button style="margin-left: 122px;" class="play-server" onclick="notAllowed()">Connect</button></h5>
+                            </div>
+                            <div class="server-popular">
+                                <img class="server-icon" src="https://texture.namemc.com/75/b8/75b87a0e1f4699d0.png" draggable="false"><h5 class="server">CavePvP<button style="margin-left: 85px;" class="play-server" onclick="notAllowed()">Connect</button></h5>
+                            </div>
+                        </div>
+                        <div id="partnered-server-list" class="partnered-servers">
+                            <br>
+                            <p class="partnered-servers-label">Partnered Networks</p>
+
+                            <div class="server-popular1">
+                                <img class="server-icon" src="https://texture.namemc.com/f7/76/f776420c2ca4c458.png" draggable="false"><h5 class="server">Certix Network<button style="margin-left: 32px;" class="play-server" onclick="notAllowed()">Connect</button></h5>
+                            </div>
+
+                            <div class="server-popular1">
+                                <img class="server-icon" src="https://texture.namemc.com/9d/65/9d654d9de89e2df2.png" draggable="false"><h5 class="server">Kira Network<button style="margin-left: 53px;" class="play-server" onclick="notAllowed()">Connect</button></h5>
+                            </div>
+                        </div>
+
+                    </section>
+
+                </div>
+
+                    <!-- Settings Tab -->
+
+                <div id="settingstab">
+                    <section id="settings-tab" class="settings-page">
+                        <div id="settingsmain" class="settings-main">
+                            <div class="ram-bg"></div>
+                            <h1 class="settings-title">Game Settings</h1>
+                            <h3 class="ram-title">Memory Allocation</h3>
+                            <b class="ram-hint">Hint: Select slider, and use <img draggable="false" class="arrow-icon" src="assets/img/icons/left.png"> & <img draggable="false" class="arrow-icon" src="assets/img/icons/right.png"> to precisely adjust amount</b>
+                            <p id="ram-slider-value" class="ramslider-value">2048 MB of 8192 MB Allocated</p>
+                            <input type="range" min="1024" max="8192" value="2048" class="ram-slider" id="ramslider">
+
+                            <div class="launcher-settings-bg"></div>
+                            <h3 class="launcher-settings-title">Launcher Settings</h3>
+                            <div class="launcher-log" onclick="openLauncherLogs()">Open Launcher Logs</div>
+                            <div class="client-log" onclick="openClientLogs()">Open Client Logs</div>
+                            <b class="log-hint">Hint: If you run into an issue, send us these in the Discord!</b>
+
+                        </div>
+                        <div class="settings-left">
+                            <div class="version-bg"></div>
+                                <h3 class="version-title">Game Version</h3>
+                                <p class="version-button1" onclick="updateVersion1()">1.7.10 (Default)</p>
+                                <br>
+                                <br>
+                                <p class="version-button2" onclick="updateVersion2()">1.8.9</p>
+                                <br>
+                                <br>
+                                <p class="version-button3" onclick="updateVersion3()">1.16</p>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <h3 class="branch-title">Game Branch</h3>
+                                <p class="branch-button1" onclick="updateBranch1()">Stable (Default)</p>
+                                <br>
+                                <br>
+                                <p class="branch-button2" onclick="updateBranch2()">Beta</p>
+                                <br>
+                                <br>
+                                <p class="branch-button3" onclick="updateBranch3()">Dev</p>
+                        </div>
+
+                    </section>
+                </div>
+
+                    <!-- Info Tab -->
+
+                <div id="infotab">
+                    <section id="info-tab" class="info-page">
+                        <div id="infomain" class="info-main">
+                            <div class="links-bg">
+                            <h1 class="quick-links-label" align="center">Quick Links</h1>
+                            <img class="discord-button" src="assets/img/info/discord.png" width="45" height="45" onclick="openDiscord()">
+                            <img class="telegram-button" src="assets/img/info/telegram.png" width="45" height="45" onclick="openTelegram()">
+                            <img class="website-button" src="assets/img/info/website.png" width="45" height="45" onclick="openWebsite()">
+                            <img class="twitter-button" src="assets/img/info/twitter.png" width="70" height="70" onclick="openTwitter()">
+                        </div>
+
+                        <div class="about-bg">
+                            <h1 class="about-label" align="center">What is Aero Client?</h1>
+                            <br>
+                            <p class="about-response">Aero Client is a Free Modpack and Client-Side AntiCheat built for Minecraft 1.7.10. We offer more features than normal CheatBreaker, such as more mods, Voice Chat and much more!</p>
+                            <br>
+                            <br>
+                            <p align="center">Aero Client will soon support Minecraft 1.8.9 and 1.16.</p>
+                        </div>
+
+                        </div>
+                    </section>
+                </div>
+
+
+            </div>
+            <div class="footer">
+                <img class="mndevs-logo" src="assets/img/splash/mnDevs.png">
+                <p class="footer-text">Powered by mn<b style="font-weight: 800;">Devs</b> [LauncherAPI/master]</p>
+                <p class="footer-text2">Not Affiliated With Mojang Studios</p>
+            </div>
+        </div>
+
+<script>
+    slider = document.getElementById("ramslider");
+	label = document.getElementById("ram-slider-value");
+	slider.oninput = function() {
+		onRamChange()
+	  	label.innerHTML = document.getElementById("ramslider").value + " MB of 8192 MB Allocated";
+	};
+</script>
+
+
+
+	</body>
+</html>
