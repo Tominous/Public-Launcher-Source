@@ -8,4 +8,4 @@ If you want to see your changes added to the Launcher, create a pull request wit
 
 ## Credits
 
-mnDevs - loading splash
+mnDevs - Loading Splash.
