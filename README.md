@@ -1,6 +1,6 @@
 # Public Launcher Source
 
-Aero Client's Public Launcher Source Code, posted because of recent allegations which can easily be debunked by looking through this.
+Aero Client's Public Launcher Source Code, posted because of recent allegations, which can easily be proven incorrect by looking through this source code.
 
 ## Contribution
 
