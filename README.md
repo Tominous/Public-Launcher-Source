@@ -9,7 +9,3 @@ The JRE included with Aero Client's Launcher can be found <a href="https://www.o
 ## Contribution
 
 If you want to see your changes added to the Launcher, create a pull request with your changes.
-
-## Credits
-
-mnDevs - Loading Splash.
